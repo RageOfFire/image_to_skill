@@ -9,7 +9,7 @@ from image_to_skill.image_processor import ImageDetails
 class Mode(Enum):
     """Modes for particle positioning. """
     HORIZONTAL = "HR"
-    VERTICAL = "VT"
+    VERTICAL = "VR"
 
 
 class ParticleType(Enum):
@@ -48,7 +48,7 @@ class ParticleType(Enum):
     NAUTILUS = "nautilus"
     NOTE = "note"
     PORTAL = "portal"
-    REDSTONE = "redstone"
+    REDSTONE = "reddust"
     SLIME = "slime"
     SMOKE_LARGE = "smoke_large"
     SMOKE_NORMAL = "smoke_normal"
@@ -112,7 +112,7 @@ class CodeGenerator:
                 if color_at_xy[3] == 0:
                     continue
                 # pylint: disable-next=C0209,C0301
-                yield "    - effect:particles{{particle={p};amount=1;color={c};Size={s};forwardOffset={fo};sideOffset={so};yOffset={y}}}\n".format(
+                yield "    - effect:particles{{particle={p};amount=1;fixedyaw=0;fixedpitch=0;color={c};size={s};forwardOffset={fo};sideOffset={so};yOffset={y}}}\n".format(
                     p=self.particle_type.value,
                     c="#{0:02x}{1:02x}{2:02x}".format(  # pylint: disable=C0209
                         color_at_xy[0],
