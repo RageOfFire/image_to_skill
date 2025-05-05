@@ -7,7 +7,7 @@ Convert images to MythicMobs skills.
 ```
 $ poetry install
 $ poetry shell
-$ pyinstaller cli --name image_to_skill --onefile
+$ pyinstaller cli.py --name image_to_skill --onefile
 ```
 
 The executable will be inside `./dist` directory.
