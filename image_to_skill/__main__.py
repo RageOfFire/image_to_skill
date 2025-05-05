@@ -33,13 +33,13 @@ def main():
                 encoding="utf-8"
             ) as yaml_file:
                 generator = CodeGenerator(
-                    mode=Mode(input("Mode: ")),
-                    particle_type=ParticleType(input("Particle type: ")),
-                    particle_interval=float(input("Particle interval: ")),
-                    particle_size=float(input("Particle size: ")),
-                    base_forward_offset=float(input("Base forward offset: ")),
-                    base_side_offset=float(input("Base side offset: ")),
-                    base_y_offset=float(input("Base Y offset: ")),
+                    mode=Mode(input("Mode: ", default="HR")),
+                    particle_type=ParticleType(input("Particle type: ", default="REDSTONE")),
+                    particle_interval=float(input("Particle interval: ", default=0.05, cast=float)),
+                    particle_size=float(input("Particle size: ", default=0.5, cast=float))),
+                    base_forward_offset=float(input("Base forward offset: ", default=0, cast=float)),
+                    base_side_offset=float(input("Base side offset: ", default=0, cast=float)),
+                    base_y_offset=float(input("Base Y offset: ", default=0.5, cast=float)),
                     image=ImageDetails.from_path(join(images_directory, i))
                 )
                 for line in generator.generate_code():
